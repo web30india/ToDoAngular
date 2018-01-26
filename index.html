@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="style.css">
+
+
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+
+<div class="container" id="main">
+
+	 <h2>My Todo List</h2>
+
+<form ng-submit="todoAdd()">
+<label>
+    <input type="text" class ="form-control" ng-model="todoInput"  size="50" placeholder="Add New"> </label>
+    <input class="btn btn-primary" type="submit" value="Add New">
+</form>
+
+<br>
+&nbsp; &nbsp;
+ <input  type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /> Check All &nbsp;
+<button class="btn btn-danger" ng-click="remove()"> <span class="glyphicon glyphicon-remove"></span>  Remove marked</button>
+
+<div ng-repeat="x in todoList">
+
+<div class="list-group">
+
+<li class="list-group-item"><input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span> </label>
+<a type="button" ng-model="x.delete" ng-click="removeSelected(item)" class="pull-right btn btn-danger btn-sm" aria-hidden='true'>&times;</a>
+ </li>
+        
+              
+   
+	</div>
+	
+</div>
+
+
+</div>
+<script src="main.js"></script>
+
+</body>
+</html>
